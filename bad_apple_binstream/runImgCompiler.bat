@@ -1,0 +1,1 @@
+img_compiler.py -d -m -t 120 dump stream.bin
