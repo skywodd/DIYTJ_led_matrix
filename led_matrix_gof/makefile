@@ -4,10 +4,6 @@ TARGET ?= atmega1284p
 # System clock frequency
 F_CPU ?= 16000000
 
-# Using arduino bootloader
-SERIAL_PORT ?= COM13
-SERIAL_SPEED ?= 115200
-
 # Source files to compile
 SOURCES = main.c
 
@@ -45,11 +41,8 @@ size: $(OUTPUT).elf
 flash: $(OUTPUT).hex
 	$(AVRDUDE_ICSP) -U flash:w:$(OUTPUT).hex
 	
-arduino: $(OUTPUT).hex
-	avrdude -p $(TARGET) -c arduino -P $(SERIAL_PORT) -b $(SERIAL_SPEED) -U flash:w:$(OUTPUT).hex
-	
 fuses:
-	$(AVRDUDE_ICSP) -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m  -U lock:w:0x0f:m
+	$(AVRDUDE_ICSP) -U lfuse:w:0xf7:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m  -U lock:w:0x0f:m
 	
 clean:
 	rm -f $(OBJECTS) $(OUTPUT).elf $(OUTPUT).hex

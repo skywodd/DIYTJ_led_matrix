@@ -42,7 +42,7 @@ flash: $(OUTPUT).hex
 	$(AVRDUDE_ICSP) -U flash:w:$(OUTPUT).hex
 	
 fuses:
-	$(AVRDUDE_ICSP) -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m  -U lock:w:0x0f:m
+	$(AVRDUDE_ICSP) -U lfuse:w:0xf7:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m  -U lock:w:0x0f:m
 	
 clean:
 	rm -f $(OBJECTS) $(OUTPUT).elf $(OUTPUT).hex
