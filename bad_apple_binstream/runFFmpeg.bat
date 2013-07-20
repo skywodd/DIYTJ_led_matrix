@@ -1,0 +1,1 @@
+"C:\PortableApps\ffmpeg-win64-shared\bin\ffmpeg.exe" -i "Touhou - Bad Apple!! PV.mp4" -deinterlace -an -ss 1 -t 218 -q:v 0 -f image2 -vcodec mjpeg -y -s 96x64 "C:\Users\skywodd\Desktop\bad apple\dump\img_%%04d.jpg"
